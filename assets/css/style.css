@@ -1,0 +1,176 @@
+/* assets/css/style.css */
+:root { --bs-body-bg-rgb: 240, 242, 245; }
+[data-bs-theme="dark"] { --bs-body-bg-rgb: 26, 26, 26; }
+
+.navbar { box-shadow: 0 2px 4px rgba(0,0,0,.08); }
+.list-group-item {
+    border-radius: .5rem !important;
+    border: 1px solid var(--bs-border-color);
+    transition: all 0.2s ease;
+    background-color: var(--bs-tertiary-bg);
+}
+.list-group-item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+.tag {
+    display: inline-block; padding: .3em .6em; font-size: .75em; font-weight: 600;
+    line-height: 1; color: #fff; text-align: center; white-space: nowrap;
+    vertical-align: baseline; border-radius: .375rem; background-color: #6c757d;
+    margin: 2px 1px;
+}
+.initial-view { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; color: #6c757d; }
+.card { border-radius: .75rem; box-shadow: 0 4px 12px rgba(0,0,0,.05); border: none; height: 100%; }
+.item-card { display: flex; flex-direction: column; }
+.item-card .card-body { flex-grow: 1; }
+.item-card.active { border: 2px solid var(--bs-primary); box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.4); }
+.item-card.border-danger { box-shadow: 0 4px 12px rgba(var(--bs-danger-rgb), 0.4); }
+.out-of-stock-warning { font-size: 0.75rem; }
+.autocomplete-suggestions { position: absolute; border: 1px solid var(--bs-border-color); border-top: none; z-index: 1056; background-color: var(--bs-body-bg); width: 100%; max-height: 200px; overflow-y: auto; display: none; }
+.autocomplete-suggestion { padding: 10px; cursor: pointer; }
+.autocomplete-suggestion:hover { background-color: var(--bs-tertiary-bg); }
+.autocomplete-suggestion.autocomplete-active { background-color: var(--bs-primary); color: white; }
+.tag-suggestion { display: flex; justify-content: space-between; align-items: center; }
+.nav-tabs .nav-link, .nav-pills .nav-link { color: var(--bs-secondary-color); }
+.nav-tabs .nav-link.active, .nav-pills .nav-link.active { color: var(--bs-primary); font-weight: bold; background-color: var(--bs-primary-bg-subtle); }
+.clickable { cursor: pointer; }
+.action-buttons button { margin: 0 2px; }
+
+#autos-list .accordion-item { background-color: transparent; border: none; }
+#autos-list .accordion-button {
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: .5rem !important;
+    box-shadow: none;
+}
+ #autos-list .accordion-button:not(.collapsed) { background-color: var(--bs-primary-bg-subtle); color: var(--bs-primary-text-emphasis); }
+
+.parent-item { cursor: pointer; font-weight: 500; }
+.parent-item .bi-chevron-down { transition: transform 0.2s ease-in-out; }
+.parent-item[aria-expanded="true"] .bi-chevron-down { transform: rotate(180deg); }
+.child-item-container { margin-top: 0.5rem; }
+.child-item-container .list-group { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1.5rem; }
+.child-item, .single-version-item { cursor: pointer; background-color: var(--bs-tertiary-bg); }
+
+.child-item.active, .single-version-item.active {
+    color: var(--bs-body-color) !important;
+    background-color: var(--bs-primary-bg-subtle) !important;
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.2);
+}
+.child-item.active { border-left-width: 3px; }
+.child-item.active *, .single-version-item.active * { color: var(--bs-body-color) !important; }
+.spec-details { font-size: 0.8em; color: var(--bs-secondary-color); }
+
+.advanced-search-card {
+    background-color: var(--bs-tertiary-bg);
+    border-radius: .5rem;
+    border: 1px solid var(--bs-border-color);
+}
+.advanced-search-card summary { cursor: pointer; }
+
+.item-image-placeholder {
+    background-color: var(--bs-tertiary-bg);
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-secondary-color);
+    border-bottom: 1px solid var(--bs-border-color);
+    border-top-left-radius: .75rem;
+    border-top-right-radius: .75rem;
+}
+.item-image-placeholder i { font-size: 2rem; }
+.item-card .card-img-top {
+     aspect-ratio: 4 / 3;
+     object-fit: cover;
+}
+.img-preview { max-height: 90px; margin-top: 10px; border-radius: .375rem; }
+
+.form-check-input:indeterminate {
+     background-color: var(--bs-primary);
+     border-color: var(--bs-primary);
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
+}
+
+.col-custom-5, .col-custom-8 {
+    flex: 0 0 auto;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
+.col-custom-5 { width: 20%; }
+.col-custom-8 { width: 12.5%; }
+
+/* Hide back button by default on desktop */
+.mobile-back-button {
+    display: none;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 675px) {
+    #mainTab{
+        padding-top: 5% !important;
+    }
+    /* --- General Layout --- */
+    .main-panel-container,
+    .details-panel-container {
+        height: auto !important;
+        overflow-y: visible !important;
+        /* Use a smaller padding on mobile */
+        padding: 1rem !important; 
+    }
+    
+    .initial-view {
+        /* Reduce height on mobile for better visibility */
+        height: auto;
+        min-height: 200px;
+        padding: 2rem 0;
+    }
+
+    /* This class will be toggled by JS to hide/show panels */
+    .view-hidden-mobile {
+        display: none !important;
+    }
+
+    /* Show and style the back button on mobile */
+    .mobile-back-button {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* --- Dashboard Tabs --- */
+    #mainTab {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        /* Add some space for the scrollbar if it appears */
+        padding-bottom: 5px; 
+    }
+
+    #mainTab .nav-item {
+        flex-shrink: 0;
+    }
+    
+    /* --- Items Tab --- */
+
+    .item-card .card-body h5 {
+        font-size: 1rem;
+    }
+    
+    /* Force item grid into two columns on small screens */
+    #items-library-grid .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    
+    /* --- Modals --- */
+    /* Stack two-column layouts inside modals */
+    #trabajo-main-pane .row .col-md-6,
+    #trabajo-items-pane .row .col-md-6 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
